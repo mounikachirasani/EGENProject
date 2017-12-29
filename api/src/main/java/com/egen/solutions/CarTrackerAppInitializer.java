@@ -4,7 +4,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 
 public class CarTrackerAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{CarTrackerApplication.class};
+        return new Class[]{CarTrackerApplication.class, JPAConfig.class};
     }
 
     protected Class<?>[] getServletConfigClasses() {
