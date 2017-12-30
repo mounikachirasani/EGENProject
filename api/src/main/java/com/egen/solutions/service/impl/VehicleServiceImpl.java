@@ -31,8 +31,12 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Transactional
     public Vehicle create(Vehicle vehicleObj) {
-       // vehicleObj.setVin(UUID.randomUUID().toString());
-        return vehicleRepository.create(vehicleObj);
+        Vehicle exists = vehicleRepository.getById(vehicleObj.getVin());
+        if (exists == null) {
+            return vehicleRepository.create(vehicleObj);
+        }else{
+            throw new RuntimeException("Record already exists");
+        }
     }
 
     @Transactional
@@ -44,6 +48,18 @@ public class VehicleServiceImpl implements VehicleService {
         return vehicleRepository.update(vehicleObj);
     }
 
+    public List<Vehicle> upsert(List<Vehicle> vehicleObjs){
+        for(Vehicle vehicle : vehicleObjs) {
+            Vehicle existingVehicle = vehicleRepository.getById(vehicle.getVin());
+            if (existingVehicle == null) {
+                vehicleRepository.create(vehicle);
+            } else {
+                vehicleRepository.update(vehicle);
+            }
+        }
+        return vehicleRepository.listAll();
+    }
+
     @Transactional
     public void delete(String vehicleId) {
         Vehicle existingVehicle = vehicleRepository.getById(vehicleId);
@@ -52,4 +68,5 @@ public class VehicleServiceImpl implements VehicleService {
         }
         vehicleRepository.delete(existingVehicle);
     }
+
 }

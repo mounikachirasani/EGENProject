@@ -16,19 +16,16 @@ public class ReadingApiController {
 
     @RequestMapping(method = RequestMethod.GET)
     public List<Reading> listAll() {
-
         return readingService.listAll();
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
     public Reading getById(@PathVariable("id") String readingId) {
-
         return readingService.getById(readingId);
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public Reading create(@RequestBody Reading readingObj)
-    {
+    public Reading create(@RequestBody Reading readingObj) {
         return readingService.create(readingObj);
     }
 
@@ -39,7 +36,6 @@ public class ReadingApiController {
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
     public void delete(@PathVariable("id") String readingId) {
-
         readingService.delete(readingId);
     }
 }

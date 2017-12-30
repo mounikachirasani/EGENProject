@@ -17,13 +17,11 @@ public class ReadingRepositoryImpl implements ReadingRepository {
     private EntityManager entityManager;
 
     public List<Reading> listAll() {
-
         TypedQuery<Reading> query = entityManager.createNamedQuery( "Reading.listAllReading", Reading.class);
         return query.getResultList();
     }
 
     public Reading getById(String readingId) {
-
         return entityManager.find(Reading.class, readingId);
     }
 

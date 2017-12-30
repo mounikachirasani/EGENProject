@@ -15,6 +15,8 @@ public interface VehicleService {
 
     Vehicle update(String vehicleId, Vehicle vehicleObj);
 
+    List<Vehicle> upsert(List<Vehicle> vehicleObjs);
+
     void delete(String vehicleId);
 
 }

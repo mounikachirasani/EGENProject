@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping(value = "/vehicles")
 public class VehicleApiController {
@@ -32,6 +33,11 @@ public class VehicleApiController {
     @RequestMapping(method = RequestMethod.PUT, value = "/{id}")
     public Vehicle update(@PathVariable("id") String vehicleId, @RequestBody Vehicle vehicleObj) {
         return vehicleService.update(vehicleId, vehicleObj);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT)
+    public List<Vehicle> upsert(@RequestBody List<Vehicle> vehicleObjs){
+        return vehicleService.upsert(vehicleObjs);
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
