@@ -9,6 +9,7 @@ import java.util.UUID;
         @NamedQuery(name = "Reading.listAllReading", query = "SELECT reading FROM Reading reading ORDER BY reading.vin"),
         @NamedQuery(name = "Reading.getReadingByID", query = "SELECT reading FROM Reading reading WHERE reading.id= :paramReadingId")
 })
+@Table(name= "reading")
 public class Reading {
 
     @Id
@@ -25,8 +26,9 @@ public class Reading {
     private Boolean cruiseControlOn;
     private int engineRpm;
 
-    @OneToOne
-    private Tire tire;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "tireId")
+    private Tire tires;
 
     public Reading() {
         this.id = UUID.randomUUID().toString();
@@ -128,11 +130,11 @@ public class Reading {
         this.engineRpm = engineRpm;
     }
 
-    public Tire getTire() {
-        return tire;
+    public Tire getTires() {
+        return tires;
     }
 
-    public void setTire(Tire tire) {
-        this.tire = tire;
+    public void setTires(Tire tires) {
+        this.tires = tires;
     }
 }

@@ -1,5 +1,6 @@
 package com.egen.solutions.controllers;
 
+import com.egen.solutions.dataobject.Alert;
 import com.egen.solutions.dataobject.Vehicle;
 import com.egen.solutions.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +44,10 @@ public class VehicleApiController {
     @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
     public void delete(@PathVariable("id") String vehicleId) {
         vehicleService.delete(vehicleId);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/{id}/alerts")
+    public List<Alert> getVehicleAlertsByVin(@PathVariable("id") String vehicleId) {
+        return vehicleService.getVehicleAlertsByVin(vehicleId);
     }
 }

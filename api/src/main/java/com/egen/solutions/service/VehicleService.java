@@ -1,5 +1,6 @@
 package com.egen.solutions.service;
 
+import com.egen.solutions.dataobject.Alert;
 import com.egen.solutions.dataobject.Vehicle;
 
 import java.util.List;
@@ -18,5 +19,7 @@ public interface VehicleService {
     List<Vehicle> upsert(List<Vehicle> vehicleObjs);
 
     void delete(String vehicleId);
+
+    List<Alert> getVehicleAlertsByVin(String vehicleId);
 
 }

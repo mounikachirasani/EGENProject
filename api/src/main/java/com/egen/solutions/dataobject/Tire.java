@@ -1,7 +1,6 @@
 package com.egen.solutions.dataobject;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
@@ -13,6 +12,7 @@ public class Tire {
     private int frontRight;
     private int rearLeft;
     private int rearRight;
+
 
     public Tire()
     {
@@ -58,4 +58,5 @@ public class Tire {
     public void setRearRight(int rearRight) {
         this.rearRight = rearRight;
     }
-}
+
+   }

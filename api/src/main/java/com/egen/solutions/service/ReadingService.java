@@ -15,4 +15,5 @@ public interface ReadingService {
     Reading update(String readingId, Reading readingObj);
 
     void delete(String readingId);
+
 }

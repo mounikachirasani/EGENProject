@@ -1,5 +1,7 @@
 package com.egen.solutions.repository.impl;
 
+import com.egen.solutions.dataobject.Alert;
+import com.egen.solutions.dataobject.AlertPriority;
 import com.egen.solutions.dataobject.Reading;
 import com.egen.solutions.dataobject.Vehicle;
 import com.egen.solutions.repository.ReadingRepository;
