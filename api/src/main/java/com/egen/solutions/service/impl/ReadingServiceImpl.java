@@ -83,6 +83,10 @@ public class ReadingServiceImpl implements ReadingService {
 
     private void validateVehicleReadingswithAlerts(Reading readingObj, Vehicle existingVehicle) {
 
+        if(readingObj.getEngineRpm() > existingVehicle.getRedlineRpm()){
+            createVehicleAlert(AlertPriority.HIGH, "Engine RPM " +readingObj.getEngineRpm()
+                    +" is higher than Redline RPM " +existingVehicle.getRedlineRpm(), existingVehicle);
+        }
         if (readingObj.getEngineCoolantLow()) {
             createVehicleAlert(AlertPriority.MEDIUM, "Engine coolant is low", existingVehicle);
         }
@@ -92,13 +96,13 @@ public class ReadingServiceImpl implements ReadingService {
         if (readingObj.getFuelVolume() < (0.1 * existingVehicle.getMaxFuelVolume())) {
             createVehicleAlert(AlertPriority.MEDIUM, "Vehicle Fuel is low", existingVehicle);
         }
-        if (readingObj.getTires().getFrontLeft() < 32 || readingObj.getTires().getFrontRight() < 32 ||
-                readingObj.getTires().getRearLeft() < 32 || readingObj.getTires().getRearRight() < 32) {
-            createVehicleAlert(AlertPriority.LOW, "Tire pressure is low than minimum level", existingVehicle);
+        if (readingObj.getTires().getFrontLeft() < 30 || readingObj.getTires().getFrontRight() < 30 ||
+                readingObj.getTires().getRearLeft() < 30 || readingObj.getTires().getRearRight() < 30) {
+            createVehicleAlert(AlertPriority.LOW, "Tire pressure is lower than minimum level", existingVehicle);
         }
         if (readingObj.getTires().getFrontLeft() > 36 || readingObj.getTires().getFrontRight() < 36 ||
                 readingObj.getTires().getRearLeft() < 36 || readingObj.getTires().getRearRight() < 36) {
-            createVehicleAlert(AlertPriority.MEDIUM, "Tire pressure is high than maximum level", existingVehicle);
+            createVehicleAlert(AlertPriority.MEDIUM, "Tire pressure is higher than maximum level", existingVehicle);
         }
 
     }
