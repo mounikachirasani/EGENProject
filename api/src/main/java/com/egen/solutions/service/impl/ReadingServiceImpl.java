@@ -104,6 +104,5 @@ public class ReadingServiceImpl implements ReadingService {
                 readingObj.getTires().getRearLeft() < 36 || readingObj.getTires().getRearRight() < 36) {
             createVehicleAlert(AlertPriority.MEDIUM, "Tire pressure is higher than maximum level", existingVehicle);
         }
-
     }
 }

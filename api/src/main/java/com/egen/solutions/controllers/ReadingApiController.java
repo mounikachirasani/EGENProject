@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/readings")
+@CrossOrigin
 public class ReadingApiController {
 
     @Autowired
