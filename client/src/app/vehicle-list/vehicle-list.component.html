@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th>Vin</th>
+    <th>Make</th>
+    <th>Model</th>
+    <th>Year</th>
+    <th>Last Service Date</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr *ngFor="let vehicle of vehicles">
+    <td><a [routerLink]="['/vehicles', vehicle.vin]">{{vehicle.vin}}</a></td>
+    <td>{{vehicle.make}}</td>
+    <td>{{vehicle.model}}</td>
+    <td>{{vehicle.year}}</td>
+    <td>{{vehicle.lastServiceDate | date:"MM/dd/yy"}}</td>
+  </tr>
+  </tbody>
+</table>
+

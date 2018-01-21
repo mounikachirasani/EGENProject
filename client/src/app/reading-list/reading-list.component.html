@@ -1,0 +1,26 @@
+<h4>Readings List</h4>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Vin</th>
+    <th>fuelVolume</th>
+    <th>speed</th>
+    <th>engineHp</th>
+    <th>checkEngineLightOn</th>
+    <th>engineCoolantLow</th>
+    <th>cruiseControlOn</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr *ngFor="let vehicle of readings">
+    <td>{{vehicle.vin}}</td>
+    <td>{{vehicle.fuelVolume}}</td>
+    <td>{{vehicle.speed}}</td>
+    <td>{{vehicle.engineHp}}</td>
+    <td>{{vehicle.checkEngineLightOn}}</td>
+    <td>{{vehicle.engineCoolantLow}}</td>
+    <td>{{vehicle.cruiseControlOn}}</td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,20 @@
+<h4>Alerts</h4>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Vin</th>
+    <th>Priority</th>
+    <th>Message</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr *ngFor="let alert of alerts">
+    <td>{{alert.vehicleVin}}</td>
+    <td>{{alert.priority}}</td>
+    <td>{{alert.alertMessage}}</td>
+  </tr>
+  </tbody>
+</table>
+
+
